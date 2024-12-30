@@ -28,7 +28,7 @@
 
 <body>
     @if(server){
-        <BlazorAppServer.Components.Routes @rendermode="InteractiveServer"/>
+        <BlazorAppServer.Components.Routes @rendermode="InteractiveServer" />
     }
     else{
         <BlazorAppWasm.Routes @rendermode="InteractiveWebAssembly" />
