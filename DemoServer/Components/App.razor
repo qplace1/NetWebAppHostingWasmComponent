@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="app.css" />
+    @if (server)
+    {
+        <link rel="stylesheet" href="BlazorAppServer.styles.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="BlazorAppWasm.styles.css" />
+    }
+    
+    <link rel="icon" type="image/png" href="favicon.png" />
+    @if (server)
+    {
+        <HeadOutlet @rendermode="InteractiveServer" />
+    }
+    else{
+        <HeadOutlet @rendermode="InteractiveWebAssembly" />
+    }
+</head>
+
+<body>
+    @if(server){
+        <BlazorAppServer.Components.Routes @rendermode="InteractiveServer"/>
+    }
+    else{
+        <BlazorAppWasm.Routes @rendermode="InteractiveWebAssembly" />
+    }
+    
+    <script src="_framework/blazor.web.js"></script>
+</body>
+
+</html>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private bool server
+       => HttpContext.Request.Path.ToString().Contains("wasm") ? false : true;
+
+   
+}
