@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="app.css" />
     @if (server)
     {
-        <link rel="stylesheet" href="BlazorAppServer.styles.css" />
+        <link rel="stylesheet" href="DemoServer.styles.css" />
     }
     else
     {
-        <link rel="stylesheet" href="BlazorAppWasm.styles.css" />
+        <link rel="stylesheet" href="WasmFileEditor.styles.css" />
     }
     
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -28,13 +28,14 @@
 
 <body>
     @if(server){
-        <BlazorAppServer.Components.Routes @rendermode="InteractiveServer" />
+        <DemoServer.Components.Routes @rendermode="InteractiveServer" />
+        <script src="_framework/blazor.web.js"></script>
     }
     else{
-        <BlazorAppWasm.Routes @rendermode="InteractiveWebAssembly" />
+        <WasmFileEditor.Routes @rendermode="InteractiveWebAssembly" />
+        <script src="_framework/blazor.webassembly.js"></script>
     }
     
-    <script src="_framework/blazor.web.js"></script>
 </body>
 
 </html>
