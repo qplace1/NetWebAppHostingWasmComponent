@@ -28,13 +28,13 @@
 
 <body>
     @if(server){
-        <DemoServer.Components.Routes  @rendermode="InteractiveServer"/>
+        <DemoServer.Components.Routes @rendermode="InteractiveServer" />
+        <script src="_framework/blazor.web.js"></script>
     }
     else{
-       <WasmFileEditor.Routes @rendermode="InteractiveWebAssembly" />
+        <BlazorAppWasm.Routes @rendermode="InteractiveWebAssembly" />
     }
     
-    <script src="_framework/blazor.web.js"></script>
 </body>
 
 </html>
