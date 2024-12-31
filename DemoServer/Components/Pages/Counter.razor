@@ -22,7 +22,7 @@
     {
         if (firstRender && !_hasLogged)
         {
-            await JSRuntime.InvokeVoidAsync("logToConsole", "Component initialized: Logging from OnAfterRenderAsync.");
+            await JSRuntime.InvokeVoidAsync("logToConsole", "Counter page initialized: Logging from OnAfterRenderAsync.");
             _hasLogged = true; 
         }
     }

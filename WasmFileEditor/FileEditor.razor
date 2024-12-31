@@ -1,7 +1,17 @@
 ﻿@page "/fileeditor_wasm"
+@* @inject HttpClient HttpClient *@
+@inject IJSRuntime JSRuntime
 
 <h3>File Editor Wasm Component</h3>
 
 @code {
-
+    private bool _hasLogged = false;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_hasLogged)
+        {
+            await JSRuntime.InvokeVoidAsync("logToConsole", "FileEditor initialized: Logging from OnAfterRenderAsync.");
+            _hasLogged = true;
+        }
+    }
 }
