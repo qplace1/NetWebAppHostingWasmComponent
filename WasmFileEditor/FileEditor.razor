@@ -1,11 +1,12 @@
-﻿@page "/fileeditor_wasm"
+﻿@page "/fileeditor_wasm" 
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
 
 <h3>File Editor Wasm Component</h3>
-
+@FileName
 @code {
     private bool _hasLogged = false;
+    private String FileName = "NoName";
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && !_hasLogged)
@@ -13,5 +14,18 @@
             await JSRuntime.InvokeVoidAsync("logToConsole", "FileEditor initialized: Logging from OnAfterRenderAsync.");
             _hasLogged = true;
         }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var fileData = await HttpClient.GetFromJsonAsync<SharedDemoData.FileData>("api/filedata");
+        await JSRuntime.InvokeVoidAsync("logToConsole", $"HttpCall:{fileData.Name}");
+        FileName = fileData.Name;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("BROWSER")))
+            FileName += " webassembly";
+        else
+            FileName += " server";
+
     }
 }

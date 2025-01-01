@@ -2,13 +2,14 @@
 @inject IJSRuntime JSRuntime
 
 <PageTitle>Counter</PageTitle>
-<WasmFileEditor.FileEditor></WasmFileEditor.FileEditor>
-<h1>Counter</h1>
 <script>
     window.logToConsole = (message) => {
         console.log(message);
     };
 </script>
+
+<WasmFileEditor.FileEditor></WasmFileEditor.FileEditor>
+
 
 <p role="status">Current count: @currentCount</p>
 

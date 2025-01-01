@@ -7,7 +7,7 @@ builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["BaseApiUrl"]) });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["BaseApiUrl"] ?? "wrong_url")});
 
 var app = builder.Build();
 
@@ -28,5 +28,10 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(new[] { typeof(WasmFileEditor._Imports).Assembly });
+
+app.MapGet("/api/filedata", () =>
+{
+    return new SharedDemoData.FileData { Name = "test" };
+});
 
 app.Run();

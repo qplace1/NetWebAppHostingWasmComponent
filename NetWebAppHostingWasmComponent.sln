@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoServer", "DemoServer\De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmFileEditor", "WasmFileEditor\WasmFileEditor.csproj", "{8A09B23B-41C3-4F01-9778-79BD13A79A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedDemoData", "SharedDemoData\SharedDemoData.csproj", "{CF550E70-4B8D-40A7-8814-C2BE96DCEA8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A09B23B-41C3-4F01-9778-79BD13A79A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A09B23B-41C3-4F01-9778-79BD13A79A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A09B23B-41C3-4F01-9778-79BD13A79A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF550E70-4B8D-40A7-8814-C2BE96DCEA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF550E70-4B8D-40A7-8814-C2BE96DCEA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF550E70-4B8D-40A7-8814-C2BE96DCEA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF550E70-4B8D-40A7-8814-C2BE96DCEA8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
