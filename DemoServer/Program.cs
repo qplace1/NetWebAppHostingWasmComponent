@@ -29,9 +29,11 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(new[] { typeof(WasmFileEditor._Imports).Assembly });
 
+app.UseWebAssemblyDebugging();
+
 app.MapGet("/api/filedata", () =>
 {
-    return new SharedDemoData.FileData { Name = "test" };
+    return new SharedDemoData.FileData { Name = "Test of FileData delivery" };
 });
 
 app.Run();

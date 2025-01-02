@@ -3,10 +3,13 @@
 @inject IJSRuntime JSRuntime
 
 <h3>File Editor Wasm Component</h3>
-@FileName
+Fildata delivery: <b>@FileName</b>
+<br />
+Render mode: <b>@HowIsRendered</b>
 @code {
     private bool _hasLogged = false;
-    private String FileName = "NoName";
+    private String FileName = "nodata";
+    private String HowIsRendered = "";
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && !_hasLogged)
@@ -23,9 +26,9 @@
         FileName = fileData.Name;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("BROWSER")))
-            FileName += " webassembly";
+            HowIsRendered = "Rendered as webassembly";
         else
-            FileName += " server";
+            HowIsRendered = "Rendered as server";
 
     }
 }

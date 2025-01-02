@@ -2,6 +2,6 @@
 {
     public class FileData
     {
-        public string Name { get; set; }     
+        public string Name { get; set; } = "";    
     }
 }
